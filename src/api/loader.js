@@ -9,12 +9,16 @@ var staticPath = path.join(path.resolve(__dirname, "../../", "front-end"));
 
 var staticRoute = {
 	method: "GET",
-	path: "/{param}",
+	path: "/{param*}",
 	handler: {
 		directory: {
-			path: staticPath
+			path: staticPath,
+			listing: true,
+			index: true
 		}
-	}
+	
+	},
+	
 };
 
 console.log("Loading public route...");
