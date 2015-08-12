@@ -2,7 +2,7 @@ var server = require('../../server');
 var read = require('./read');
 var create = require('./create');
 
-
+//API Routes
 var readRoute = {
 	path: "/items/{id?}",
 	method: "GET",
@@ -22,6 +22,10 @@ var createRoute = {
 			.then(reply)
 			.catch(function (error){ return reply(console.error(error)); });
 	}
+	
+	
+//Script Routes
+
 };
 
 server.route(readRoute);

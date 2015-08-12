@@ -1,14 +1,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <h1>People</h1>
-<ul data-bind="foreach: people"></ul>
+<ul data-bind="foreach: people">
 
 		
-			<li data-bind="text: $data.name"" >
+			<li data-bind="text: name"" >
 				
 			</li>
 
-
+</ul>
 <script>
 	var Person = function(id, name){
 		 
@@ -21,7 +21,7 @@
 	function viewModel() {
 		var self = this;
 		
-		self.people = ko.observableArray([]);
+		self.people = ko.observableArray();
 		
 		
 		
@@ -32,9 +32,10 @@
 						console.log(item.id, item.name);
 						var name = item.name;
 						var id = item.id;
-				
-						//self.people.push(Person.id(item.id).name(item.name));
-						console.log(peeps);
+						
+						var person = new Person(id, name);
+						self.people.push(person);
+						console.log(self.people.name);
 						});
 					/*for (var i = 0; i< data.length; i++)
 					{
