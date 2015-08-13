@@ -21,11 +21,19 @@ var createRoute = {
 		create(request.payload)
 			.then(reply)
 			.catch(function (error){ return reply(console.error(error)); });
-	}
-	
-	
+	}	
+};
 
+var updateRoute = {
+	path: "/items",
+	method: "POST",
+	handler: function (request, reply){
+		update(request.payload)
+			.then(reply)
+			.catch(function(error){ console.log(error);  });
+	}
 };
 
 server.route(readRoute);
 server.route(createRoute);
+server.route(updateRoute);

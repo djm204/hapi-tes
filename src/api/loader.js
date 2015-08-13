@@ -19,7 +19,7 @@ var staticRoute = {
 	}
 };
 
-var createPath = path.join(path.resolve(__dirname, "../../front-end", "createForm"));
+/*var createPath = path.join(path.resolve(__dirname, "../../front-end", "createForm"));
 
 var createRoute = {
 	method: "GET",
@@ -31,8 +31,8 @@ var createRoute = {
 			index: true
 		}
 	}
-};
+};*/
 
 console.log("Loading public routes...");
 server.route(staticRoute);
-server.route(createRoute);
+//server.route(createRoute);

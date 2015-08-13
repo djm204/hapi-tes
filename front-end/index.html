@@ -2,18 +2,21 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="./vm/itemsViewModel.js"></script>
 <h1>People</h1>
-<ul data-bind="foreach: people">
+<div data-bind="foreach: people">
 
 		
-			<li data-bind="text: name"" >
+			<span data-bind="text: name"" >
 				
-			</li>
+			</span>
+			<input data-bind="text: id"  ></input>
+			<button databind="click: update">Delete </button>
+			<br/>
 
-</ul>
+</div>
 
 <div>
 	<input data-bind="value: newUserName" placeholder="New User's Name" />
-	<button data-bind="click: create">Create User</button>
+	<button data-bind="click: update">Create User</button>
 </div>
 <script>
 	window.onload = function(){
