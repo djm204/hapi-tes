@@ -24,7 +24,6 @@ var createRoute = {
 	}
 	
 	
-//Script Routes
 
 };
 

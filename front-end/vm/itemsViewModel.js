@@ -6,44 +6,48 @@ var Person = function(id, name){
 	 
 }
 
-function viewModel() {
+function itemsViewModel() {
 	var self = this;
 	
 	self.people = ko.observableArray();
-	
-	
-	
-	
-	$.getJSON("/items", function(data) {
-			var mappedPeople = $.map(data, function(item){ 
+	self.newUserName = ko.observable();
+
+	$.getJSON("/items", function() {
+				console.log("Successfully accessed GET - items");
+			})
+			.done(function(data){
+				$.map(data, function(item){ 
 				
-					console.log(item.id, item.name);
 					var name = item.name;
 					var id = item.id;
 					
 					var person = new Person(id, name);
 					self.people.push(person);
-					console.log(self.people.name);
-					});
-				/*for (var i = 0; i< data.length; i++)
-				{
-					var person = new Person(data[i].id, data[i].name);
-					self.people.push(person);
-					console.log(mappedPeople);
-					//console.log(data[i].name + " " + data[i].id);
-				}*/
-				
-		})
-			.done(function(){
-				console.log("done.");
+					})
+				console.log("Done.");
 			})
-			.fail(function(){
-				console.log("fail");	
+			.fail(function(error){
+				console.log("Failed: " + error);	
 			})
 			.always(function(){
-				console.log("finished.");
-			}); ;
+				console.log("Finished.");
+			}); 
 			
+	/*self.addItem = function() {
+		self.people.push(new Person({name: this.newUserName()}));
+		self.newUserName("");
+	};*/
+	
+	self.create = function() {
+		var name = 'name=tom'
+		$.ajax("/items/create", {
+			data: ko.toJS({ name }),
+			type: "put", 
+			contentType: "application/json",
+			success: function(result) {console.log(result)}
+		});
+		
+	};		
 			
 
 	

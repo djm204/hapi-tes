@@ -1,4 +1,6 @@
 var db = require('../../store/db');
+var Promise = require('bluebird');
+
 
 function put(item){
 	return db("items")
