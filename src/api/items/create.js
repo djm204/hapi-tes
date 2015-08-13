@@ -4,7 +4,7 @@ var Promise = require('bluebird');
 
 function put(item){
 	return db("items")
-		.insert(item)
+		.insert({name: item})
 		.then(function (newIds) {return Promise.resolve(newIds[0]); });
 }
 

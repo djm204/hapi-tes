@@ -46,7 +46,7 @@ function itemsViewModel() {
 		$.ajax({
 			url:"/items", 
 			data: ko.toJSON( name ),
-			type: 'PUT', 
+			type: 'put', 
 			contentType: "application/json",
 			success: function(data) {console.log(data)}
 		});
