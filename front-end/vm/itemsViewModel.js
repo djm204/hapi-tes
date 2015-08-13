@@ -39,12 +39,16 @@ function itemsViewModel() {
 	};*/
 	
 	self.create = function() {
-		var name = 'name=tom'
-		$.ajax("/items/create", {
-			data: ko.toJS({ name }),
-			type: "put", 
+		var name = this.newUserName();
+		console.log(name);
+		var nameJSON = ko.toJSON(name);
+		console.log(nameJSON);
+		$.ajax({
+			url:"/items", 
+			data: ko.toJSON( name ),
+			type: 'PUT', 
 			contentType: "application/json",
-			success: function(result) {console.log(result)}
+			success: function(data) {console.log(data)}
 		});
 		
 	};		
