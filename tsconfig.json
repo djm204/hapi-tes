@@ -3,23 +3,18 @@
     "compilerOptions": {
         "target": "es5",
         "module": "commonjs",
-        "isolatedModules": false,
-        "jsx": "react",
-        "experimentalDecorators": true,
-        "emitDecoratorMetadata": true,
-        "declaration": false,
-        "noImplicitAny": false,
-        "removeComments": true,
-        "noLib": false,
-        "preserveConstEnums": true,
-        "suppressImplicitAnyIndexErrors": true
+        "sourceMap": true
     },
     "filesGlob": [
-        "./**/*.ts",
-        "./**/*.tsx",
-        "!./node_modules/**/*"
+        "./src/**/*.ts"
     ],
     "files": [
-        "./src/index.ts"
+        "./src/index.ts",
+        "./src/typings/bluebird/bluebird.d.ts",
+        "./src/typings/hapi-test.d.ts",
+        "./src/typings/hapi/hapi.d.ts",
+        "./src/typings/knex/knex.d.ts",
+        "./src/typings/node/node.d.ts",
+        "./src/typings/otter.ts"
     ]
 }

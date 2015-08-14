@@ -1,0 +1,15 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+	"search.exclude": {
+		"**/node_modules": true,
+		"**/bower_components": true,
+		"**/*.js": { "when": "$(basename).ts" }
+	},
+	"files.exclude": {
+		"**/.git": true,
+		"**/.DS_Store": true,
+		"**/node_modules": true,
+		"**/*.js": { "when": "$(basename).ts" },
+		"**/*.map": { "when": "$(basename)" }
+	}
+}
