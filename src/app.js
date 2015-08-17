@@ -21,7 +21,7 @@ function startHandlers(){
 }
 
 function stopServer(error){
-	console.error("Failed to create database: " + error);
+	console.error("Failed: " + error);
 }
 
 

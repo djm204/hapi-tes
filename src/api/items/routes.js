@@ -1,6 +1,7 @@
 var server = require('../../server');
 var read = require('./read');
 var create = require('./create');
+var update = require('./update');
 
 //API Routes
 var readRoute = {
@@ -20,7 +21,7 @@ var createRoute = {
 	handler: function (request, reply){
 		create(request.payload)
 			.then(reply)
-			.catch(function (error){ return reply(console.error(error)); });
+			.catch(function (error){ return reply(console.error("Error: "+error)); });
 	}	
 };
 
@@ -30,7 +31,7 @@ var updateRoute = {
 	handler: function (request, reply){
 		update(request.payload)
 			.then(reply)
-			.catch(function(error){ console.log(error);  });
+			.catch(function(error){ return reply(console.error("Error: "+error));  });
 	}
 };
 

@@ -26,7 +26,7 @@ function itemsViewModel() {
 				console.log("Done.");
 			})
 			.fail(function(error){
-				console.log("Failed: " + error);	
+				console.log("Failed: " + error.toString());	
 			})
 			.always(function(){
 				console.log("Finished.");
@@ -50,11 +50,11 @@ function itemsViewModel() {
 	};
 	
 	self.update = function(){
-		var id = this.id();
+		var name = this.name();
 		console.log("update fired.");
 		$.ajax({
 			url: "/items",
-			data: ko.toJSON(id),
+			data: ko.toJSON(name),
 			type: "POST",
 			contentType: "application/json",
 			success: function() { console.log("Successfully deleted: "+ this.name())}

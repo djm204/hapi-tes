@@ -29,12 +29,12 @@ function getUser(id: number, username: string): H.Programmer {
 }
 
 function doThing(callback: () => any) {
-	
+	console.log(callback()); //prints 1
 }
 
 var otherthing = () => { return 1; };
 
-
+doThing(otherthing);
 
 /**
  * VSCODE:

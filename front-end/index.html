@@ -4,19 +4,23 @@
 <h1>People</h1>
 <div data-bind="foreach: people">
 
+		<ul>
+			<li>
+				<span data-bind="text: name"" ></span>
+			</li>
+			
+			<li>
+				<span data-bind="text: id"  ></span>
+				<button databind="click: $parent.update">Delete </button>	
+			</li>
+		</ul>
 		
-			<span data-bind="text: name"" >
-				
-			</span>
-			<input data-bind="text: id"  ></input>
-			<button databind="click: update">Delete </button>
-			<br/>
 
 </div>
 
 <div>
 	<input data-bind="value: newUserName" placeholder="New User's Name" />
-	<button data-bind="click: update">Create User</button>
+	<button data-bind="click: create">Create User</button>
 </div>
 <script>
 	window.onload = function(){
