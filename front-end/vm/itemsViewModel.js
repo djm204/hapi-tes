@@ -36,9 +36,22 @@ function itemsViewModel() {
 		self.people.push(new Person({name: this.newUserName()}));
 		self.newUserName("");
 	};*/
+	self.update = function(){
+		var id = this.id();
+		console.log("update fired.");
+		$.ajax({
+			url: "/items",
+			data: ko.toJSON(id),
+			type: "post",
+			contentType: "application/json",
+			success: function() { console.log("Successfully deleted: "+ this.name())}
+		});
+		
+	};	
 	
 	self.create = function() {
 		var name = this.newUserName();
+		console.log("create fired.");
 		$.ajax({
 			url:"/items", 
 			data: ko.toJSON(name),
@@ -49,18 +62,7 @@ function itemsViewModel() {
 		
 	};
 	
-	self.update = function(){
-		var name = this.name();
-		console.log("update fired.");
-		$.ajax({
-			url: "/items",
-			data: ko.toJSON(name),
-			type: "POST",
-			contentType: "application/json",
-			success: function() { console.log("Successfully deleted: "+ this.name())}
-		});
 		
-	};		
 			
 
 	

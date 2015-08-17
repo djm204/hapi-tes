@@ -11,7 +11,7 @@ var readRoute = {
 		var id = request.params.id || null;
 		read(id)
 			.then(reply)
-			.catch(function (error) {return reply (console.error(error) ); });
+			.catch(function (error) {return reply (console.error("Error: "+error) ); });
 	}
 };
 
@@ -26,7 +26,7 @@ var createRoute = {
 };
 
 var updateRoute = {
-	path: "/items",
+	path: "/items/{id?}",
 	method: "POST",
 	handler: function (request, reply){
 		update(request.payload)
