@@ -4,7 +4,7 @@ function update(item){
 	var id = item.id;
 	delete item.id
 	return db('items')
-		.update(item)
+		.delete(item)
 		.where({id : id});
 }
 

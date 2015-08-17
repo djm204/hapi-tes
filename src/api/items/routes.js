@@ -26,7 +26,7 @@ var createRoute = {
 };
 
 var updateRoute = {
-	path: "/items/{id?}",
+	path: "/items",
 	method: "POST",
 	handler: function (request, reply){
 		update(request.payload)

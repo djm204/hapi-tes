@@ -11,6 +11,8 @@ function itemsViewModel() {
 	
 	self.people = ko.observableArray();
 	self.newUserName = ko.observable();
+	
+	
 	$.getJSON("/items", function() {
 				console.log("Successfully accessed GET - items");
 			})
@@ -36,22 +38,25 @@ function itemsViewModel() {
 		self.people.push(new Person({name: this.newUserName()}));
 		self.newUserName("");
 	};*/
-	self.update = function(){
-		var id = this.id();
-		console.log("update fired.");
+	self.removePerson = function(person){ 
+		self.people.destroy(person);
+		self.update(person);
+		};
+	
+	self.update = function(person){
 		$.ajax({
 			url: "/items",
-			data: ko.toJSON(id),
+			data: ko.toJSON({id: person.id()}),
 			type: "post",
 			contentType: "application/json",
-			success: function() { console.log("Successfully deleted: "+ this.name())}
+			success: function() { console.log("Successfully deleted: "+ person.id());}
 		});
 		
 	};	
 	
 	self.create = function() {
 		var name = this.newUserName();
-		console.log("create fired.");
+		console.log("create fired." + ko.toJSON(name));
 		$.ajax({
 			url:"/items", 
 			data: ko.toJSON(name),
