@@ -1,7 +1,8 @@
-var Person = function(id, name){
+var Person = function(id, name, activated){
 	 
 	 this.name = ko.observable(name);
 	 this.id = ko.observable(id);
+	 this.activated = ko.observable(activated);
 	 
 	 
 }
@@ -21,8 +22,10 @@ function itemsViewModel() {
 				
 					var name = item.name;
 					var id = item.id;
+					var activated = item.activated;
 					
-					var person = new Person(id, name);
+					var person = new Person(id, name, activated);
+					console.log(activated);
 					self.people.push(person);
 					})
 				console.log("Done.");

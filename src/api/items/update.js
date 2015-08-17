@@ -5,7 +5,7 @@ function update(item){
 	return db('items')
 		.where({id : id})
 		.update({
-			activated: 'false'
+			activated: false
 			});
 }
 
