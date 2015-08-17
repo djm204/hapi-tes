@@ -25,7 +25,6 @@ function itemsViewModel() {
 					var activated = item.activated;
 					
 					var person = new Person(id, name, activated);
-					console.log(activated);
 					self.people.push(person);
 					})
 				console.log("Done.");
