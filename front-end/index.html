@@ -1,38 +1,49 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="./vm/itemsViewModel.js"></script>
-<h1>People</h1>
-
-<ul>
-	<li>
-		<span>Name |</span>
-		<span>| ID</span>
-	</li>
-</ul>
-<ul data-bind="foreach: people">
-	<!-- ko if: $data.activated() === 1 -->
-	<li>
-		<span data-bind="text: $data.name"></span>
-		<span data-bind="text: $data.id"></span>
-		<span data-bind="text: $data.activated"></span>
-		<a href="#" data-bind="click: $parent.removePerson">Delete </a>	
-	</li>
-	<!-- /ko -->
-</ul>
+<!DOCTYPE html>
+<html>
+	<head> 
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"></script>
+		<link rel="stylesheet" href="./css/normalize.css"></script>
 		
-
-
-
-<div>
-	<input data-bind="value: newUserName" placeholder="New User's Name" />
-	<button data-bind="click: create">Create User</button>
-</div>
-<script>
-	window.onload = function(){
-		ko.applyBindings(new itemsViewModel());
-		};
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="./vm/itemsViewModel.js"></script>
 		
-</script>
-
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body >
+		<h1>People</h1>
+		
+		<ul>
+			<li>
+				<span>Name |</span>
+				<span>| ID</span>
+			</li>
+		</ul>
+		<ul data-bind="foreach: people">
+			<!-- ko if: $data.activated() === 1 -->
+			<li>
+				<span data-bind="text: $data.name"></span>
+				<span data-bind="text: $data.id"></span>
+				<span data-bind="text: $data.activated"></span>
+				<a href="#" data-bind="click: $parent.removePerson">Delete </a>	
+			</li>
+			<!-- /ko -->
+		</ul>
+				
+		
+		
+		
+		<div>
+			<input data-bind="value: newUserName" placeholder="New User's Name" />
+			<button data-bind="click: create">Create User</button>
+		</div>
+		<script>
+			window.onload = function(){
+				ko.applyBindings(new itemsViewModel());
+				};
+				
+		</script>
+	</body>
+</html>
 
 
